@@ -1,0 +1,29 @@
+{% if links_by_type %}
+<h2 class="section-title">Best Credit Cards by Type</h2>
+
+<ul>
+    {% for link in links_by_type %}
+    <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if links_by_issuer %}
+<h2 class="section-title">Best Credit Cards by Issuer</h2>
+
+<ul>
+    {% for link in links_by_issuer %}
+    <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if links_by_creditscore %}
+<h2 class="section-title">Best Credit Cards by Credit Score</h2>
+
+<ul>
+    {% for link in links_by_creditscore %}
+    <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

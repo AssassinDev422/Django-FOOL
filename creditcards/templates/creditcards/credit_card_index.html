@@ -1,0 +1,155 @@
+{% extends 'creditcards/base.html' %}
+{% load wagtailcore_tags %}
+
+{% block page_content %}
+<section class="usmf-new article-header">
+    <header>
+        <h1>{{ page.title }}</h1>
+       
+    </header>
+
+	<div class="main-col article-body">
+
+		{{ page.body|richtext }}
+
+			<div class="content-block top-story" id="content_main_body">
+
+                    <article class="row">
+                                
+
+                        <div class="article-image-container">
+                             <img src="https://g.foolcdn.com/art/credit-cards/best-card-close-up.jpg" alt="The Best Credit Cards of 2017" class="article-image">
+                        </div>
+
+                        <div class="article-text-container">
+                            <h3><a href="https://www.fool.com/credit-cards/best-credit-cards-of-2017/">The Best Credit Cards of 2017</a></h3>
+                            <p>Uncover the top credit cards we think deserve a spot in your wallet</p>
+                        </div>
+
+
+                   	</article>
+                </div>
+
+
+
+                <div class="content-block promoted-articles">
+
+                    <h2 class="content-block-label section-title more-of-the-best">More of The Best Credit Cards</h2>
+
+
+					<article class="row">
+
+                        <div class="article-image-container">
+                             <img src="https://g.foolcdn.com/art/credit-cards/best-card-best-of-2017-2.jpg" alt="Best Travel Credit Cards" class="article-image">
+                        </div>
+
+                        <div class="article-text-container">
+                            <h3><a href="https://www.fool.com/credit-cards/best-travel-credit-cards/">Best Travel Credit Cards </a></h3>
+                            <p>
+								From massive sign-up bonuses to exclusive travel perks these credit cards are best-in-class.
+                            </p>
+                        </div>
+                    </article>
+
+
+					<article>
+
+                        <div class="article-image-container">
+                             <img src="https://g.foolcdn.com/art/credit-cards/best-card-cash-back.jpg" alt="Best Cash Back Credit Cards" class="article-image">
+                        </div>
+
+                        <div class="article-text-container">
+                            <h3><a href="https://www.fool.com/credit-cards/best-cash-back-credit-cards/">Best Cash Back Credit Cards </a></h3>
+                            <p>
+								Pocket some extra cash rewards with our picks of the best cash-back credit cards.
+                            </p>
+                        </div>
+                    </article>
+
+
+					<article class="row">
+
+                        <div class="article-image-container">
+                             <img src="https://g.foolcdn.com/art/credit-cards/best-card-balance-transfer.jpg" alt="Best Balance Transfer Credit Cards" class="article-image">
+                        </div>
+
+                        <div class="article-text-container">
+                            <h3><a href="https://www.fool.com/credit-cards/best-balance-transfer-credit-cards/">Best Balance Transfer Credit Cards </a></h3>
+                            <p>
+								Consider using these precision tools to slash out-of-pocket costs and pay off debt faster.
+                            </p>
+                        </div>
+                    </article>
+
+
+					<article class="row">
+
+                        <div class="article-image-container">
+                             <img src="https://g.foolcdn.com/art/credit-cards/best-cards-fan.jpg" alt=""Best credit cards for excellent credit" class="article-image">
+                        </div>
+
+                        <div class="article-text-container">
+                            <h3><a href="
+                https://www.fool.com/credit-cards/best-credit-cards-excellent-credit/">Best credit cards for excellent credit</a></h3>
+                            <p>
+								The most lucrative and valued perks are typically reserved for just cardholders with excellent credit.
+                            </p>
+                        </div>
+                    </article>
+
+
+
+
+                </div>
+
+
+	</div>
+	<div class="side-col article-page more-links">
+        <div class="wayfinder with-rule">
+            <h2 class="section-title">Learn More</h2>
+            <ul>
+                <li><a href="https://www.fool.com/ecap/the_motley_fool/3-steps-ideal-credit-card/?source=ic3sittxt0000002&aid=8979">FREE Guide: How to Find Your  Ideal Credit Card </a></li>
+                <li><a href="https://www.fool.com/credit-cards/2016/12/30/10-fascinating-things-you-probably-didnt-know-abou.aspx">10 Things to Know about your Credit Score </a></li>
+             </ul>
+        </div>
+
+
+    
+       <!-- <div class="wayfinder with-rule sidebar-info-ecap-section">
+            <h2 class="section-title">Finding the right card</h2>
+             <div class="sidebar-container">
+            <h3 id="ecap-heading">The 3-Step Guide to Singling Out Your Ideal Credit Card</h3><p>Picking the right credit card could save you thousands in out-of-pocket costs or even land you a new cardholder bonuses worth hundreds of dollars. But with over 1,700 credit card offers available it's easy to take a wrong turn.</p>
+            <p>Our handy guide will help you to narrow down the list and target a few we think are worth getting your hands on. Just enter your email address below to get started and claim a copy of The 3-Step Guide to Singling Out Your Ideal Credit Card.</p>
+
+            <div class="email-form row">
+                <form action="#" method="post" id="ecap-form">
+                  <label for="id_emailAddress">Enter Your Email Address</label>
+                  <input type="hidden" name="csrfmiddlewaretoken" value="kCbf3zTzZ0IAUDxADDN8OSek2alegoEC">
+                  <input class="email-input" id="id_emailAddress" name="emailAddress" type="email">
+                  <input id="id_campaignId" name="campaignId" type="hidden" value="8979">
+                  <input id="id_source" name="source" type="hidden" value="podcast-show-sidebar-ecap">
+                  <input id="id_brand" name="brand" type="hidden" value="USMF">
+                  <input type="submit" class="submit-button" id="ecap-submit-button" value="Submit" name="submit">
+                </form>
+                <div id="ecap-results"></div>
+            </div>
+            <div class="sidebar-ecap-disclosure">
+                <span class="privacy-link">
+                    <a target="_blank" href="https://www.fool.com/PopUps/PrivacyInfo.htm?aid=8715&amp;source=ENTERSOURCECODEHERE">Privacy/Legal Information</a>.
+                </span>
+                <small class="email-legal legally-we-must-say row">By submitting your email address, you consent to us keeping you informed about updates to our website and about other products and services that we think might interest you. You can unsubscribe at any time. Please read our Privacy Statement and Terms &amp; Conditions.</small>
+            </div>
+        </div>-->
+
+	</div>	
+	</div>
+</section>
+{% endblock %}
+
+{% block last_js %}
+	{{ block.super }}
+	<script>
+	var dataLayer = dataLayer || [];
+    dataLayer.push({'event': 'CreditCardHomePage'});
+	</script>
+{% endblock last_js %}

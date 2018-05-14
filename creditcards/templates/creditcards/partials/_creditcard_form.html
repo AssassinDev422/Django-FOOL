@@ -1,0 +1,15 @@
+{% load wagtailcore_tags %}
+{% load creditcards_tags %}
+
+
+{% if card.application_link %}
+	<div>
+		{% if card.conduit_required and not page.conduit %}
+			<a class="btn btn-primary credit-card-apply" href="{{ card.conduit_link }}">Apply Now</a>
+		        <small class="row">On {{ card.issuer.possessive_name }} Secure Website</small>
+		{% else %}
+			<a class="btn btn-primary credit-card-apply" href="{% append_source card.application_link %}">Apply Now</a>
+			<small class="row">On {{ card.issuer.possessive_name }} Secure Website</small>
+		{% endif %}
+	</div>
+{% endif %}

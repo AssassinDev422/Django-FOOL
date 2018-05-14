@@ -1,0 +1,30 @@
+{% for route in all_routes %}
+        <table class="table tables" id="{{route.slug}}">
+            <caption><strong>{{route.name}}</strong></caption>
+            <thead>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Segment Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Cells</th>
+                </tr>
+            </thead>
+            {% for active in route.active_segment_tests %}
+
+            <tr>
+                <td>
+                    <a href="{% url 'admin:tstr_segmenttest_change' active.pk %} ">{{ active.name }}</a></td><td>{{active.segments|unordered_list}}</td><td>{{active.start_date}}</td><td>{{ active.end_date }}</td>
+                <td>
+                    <table class="table table-condensed">
+                        {% for cell in active.segmenttestcell_set.all %}
+                        <tr>
+                            <td>{{ cell.weight }}%</td><td><a href="{{cell.get_preview_url}}" target="_blank">preview</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endfor %}

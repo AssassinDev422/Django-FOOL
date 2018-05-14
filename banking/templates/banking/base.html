@@ -1,0 +1,31 @@
+{% extends 'www/base.html' %}
+{% load static from staticfiles %}
+{% load compress %}
+
+{% block pagetitle %}
+    {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+{% endblock pagetitle %}
+
+{% block pagelevel_meta %}
+    {% include 'pages/partials/_wagtail_page_level_meta.html' %}
+{% endblock pagelevel_meta %}
+
+{% block css %}
+    {{ block.super }}
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'www/scss/article.scss' %}" type="text/x-scss"/>
+    <link rel="stylesheet" href="{% static 'banking/scss/banking.scss' %}" type="text/x-scss"/>
+    {% endcompress %}
+{% endblock css %}
+
+
+{% block body_class_name %}{{ block.super }} banking{% endblock %}
+
+
+
+{% block main_body_content %}
+    <section class="main-content-section" id="main-content">
+        {% block page_content %}{% endblock page_content %}
+    </section>
+{% endblock main_body_content %}
+

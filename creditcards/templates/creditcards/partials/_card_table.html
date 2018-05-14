@@ -1,0 +1,48 @@
+<div class="row card-details-and-terms-container">
+	<div data-toggleblock {% if not expanded %}class="collapsed" {% endif %}>
+        {% if card.issuer.show_fee_link %}
+		<a href="{{ card.detailed_rates_and_fees_link }}" class="float-right">Terms and Conditions</a>
+        {% endif %}
+		<a class="more more-btn float-left" data-toggle>Show More</a>
+		<div class="vendor-info" data-toggletarget>
+
+			<table class="table card-detail-table" cellpadding="10" cellspacing="0" width="100%">
+				<tbody>
+                    <tr>
+                        <th>Bonus Offer </th>
+                        <td>{{ card.rewards_bonus|default:'N/A' }} {{ card.rewards_bonus_terms }} </td>
+                    </tr>
+                    <tr>
+                        <th> Annual Fee </th>
+                        <td>{{ card.annual_fee }}</td>
+                    </tr>
+                    <tr>
+                        <th> Purchase APR </th>
+                        <td>
+                            <div>Intro: {{ card.intro_purchase_apr }}</div>
+                            <div>Reg: {{ card.purchase_apr }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th> Balance Transfer APR </th>
+                        <td>
+                            <div>Intro: {{ card.intro_transfer_apr }}</div>
+                            <div>Reg: {{ card.transfer_apr }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th> Credit Requirement </th>
+                        <td>{{ card.credit_rating }}</td>
+                    </tr>
+				</tbody>
+			</table>
+
+			<div class="card-terms">
+				{{ card.marketing_copy|safe }}
+			</div>
+
+			<a data-toggle class="less less-btn float-left">Show Less</a>
+		</div>
+	</div>
+
+</div>

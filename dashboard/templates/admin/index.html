@@ -1,0 +1,36 @@
+{% extends "admin/base_site.html" %}
+{% load dash_tags %}
+{# Uncomment this to remove breadcrumbs #}
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+      {% active_tests %}
+  </div>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript">
+$( document ).ready(function() {
+	segments = [];
+	route_table = '';
+    $("table li" ).each(function() {
+      if(route_table != $(this).parents("table").attr("id")){
+      	segments = [];
+      	route_table = $(this).parents("table").attr("id");
+      	segments.push(this.innerHTML);
+      }
+      else {
+      	if( $.inArray(this.innerHTML, segments) == -1){
+      		segments.push(this.innerHTML);
+      		console.log(segments);
+      	}
+      	else {
+      		$(this).css('text-decoration', 'line-through');
+      	}
+      }
+    });
+});
+</script>
+{% endblock extrajs %}

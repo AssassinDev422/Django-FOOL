@@ -1,0 +1,6 @@
+{% if card.image %}
+<img src="{{ card.image.url }}" alt="{{ card.name }}">
+{% else %}
+<img src="https://g.foolcdn.com/art/credit-cards/nocard-img.png" alt="No image available for this card">
+{% endif %}
+{% include 'creditcards/partials/_creditcard_form.html' with card=card %}

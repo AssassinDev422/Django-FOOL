@@ -1,0 +1,83 @@
+{% extends 'creditcards/base.html' %}
+{% load wagtailcore_tags creditcards_tags %}
+
+
+{% block page_content %}
+<section class="usmf-new article-header">
+    <header>
+        <h1 class="page-title">{{ page.title }}</h1>
+        <a class="btn" href="#article-disclosure">Advertiser Disclosure »</a>
+    </header>
+
+	<div class="main-col article-body">
+
+		{{ page.body|richtext }}
+		
+		<div class="credit-card-list">
+
+			{% for item in page.items.all %}
+            <span class="creditcard-anchor" id="{{ item.card.name|slugify }}"></span>
+            <section class="row indiv-card">
+
+                <div class="card-face">
+				    {% include 'creditcards/partials/_creditcard_image.html' with card=item.card page=item.card.review  show_title=True %}
+                </div>
+
+                <div class="card-overview">
+                    {% if item.subhead %}
+                        <h2>{{ item.subhead }}</h2>
+                    {% endif %}
+                    <h2 class="card-title">
+                        {% if item.card.application_link %}
+                            {% if item.card.conduit_required and not page.conduit %}
+                                <a href="{{ item.card.conduit_link }}" class="credit-card-apply">{{ item.card.name }}</a>
+                            {% else %}
+                                <a href="{% append_source item.card.application_link %}" class="credit-card-apply">{{ item.card.name }}</a>
+                            {% endif %}
+                        {% elif item.card.review %}
+                            <a href="{{ item.card.review.url }}">{{ item.card.name }}</a>
+                        {% else %}
+                            {{ item.card.name }}
+                        {% endif %}
+                    </h2>
+
+                    <div class="card-summary">
+                        {{ item.summary|richtext }} 
+                    </div>
+                </div>
+
+                {% include 'creditcards/partials/_card_table.html' with card=item.card  show_title=True %}
+
+            </section>
+			{% endfor %}
+
+		</div>
+
+        {% if page.ending %}
+        <hr class="wayfinder-rule">
+
+        <div class="card-listpage-ending">
+            {% for block in page.ending %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <hr class="wayfinder-rule">
+		{% include 'creditcards/partials/_disclosure.html' %}
+	</div>
+	<div class="side-col article-page more-links-listpage">
+        <div class="wayfinder with-rule">
+            {% creditcards_list_sidebar %}
+        </div>
+	</div>
+</section>
+{% endblock page_content %}
+
+{% block last_js %}
+	{{ block.super }}
+	<script>
+	var dataLayer = dataLayer || [];
+    dataLayer.push({'event': 'CreditCardListPage'});
+	</script>
+{% endblock last_js %}

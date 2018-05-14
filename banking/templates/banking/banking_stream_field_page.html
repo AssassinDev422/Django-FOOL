@@ -1,0 +1,27 @@
+{% extends 'banking/base.html' %}
+{% load wagtailcore_tags wagtailimages_tags wagtailuserbar %}
+
+{% block page_content %}
+    <section class="usmf-new article-header">
+        <header>
+            <h1>{{ page.title }} </h1>
+        </header>
+
+        <div class="article-body">
+            {% for block in page.body %}
+                {% include_block block with request=request %}
+            {% endfor %}
+        </div>
+
+
+            <div class="content-block comparison-links">             
+                {% for block in page.comparisons %}
+                    {% if forloop.first %}
+                        <h2 class="content-block-label section-title more-of-the-best">Compare other high-yield bank accounts</h2>
+                    {% endif %}
+                    {% include_block block with request=request %}
+                {% endfor %}
+            </div>
+
+    </section>
+{% endblock page_content %}

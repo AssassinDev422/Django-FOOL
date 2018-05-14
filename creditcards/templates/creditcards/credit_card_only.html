@@ -1,0 +1,27 @@
+{% extends 'creditcards/base.html' %}
+
+{% block page_content %}
+<section class="usmf-new article-header">
+    <header>
+        <h1 class="page-title">{{ page.card.name }} </h1>
+    </header>
+    <div class="article-body">
+            <section class="row indiv-card">
+                 <div class="card-face">
+                    {% include 'creditcards/partials/_creditcard_image.html' with card=page.card %}
+                </div>
+                {% include 'creditcards/partials/_card_table.html' with card=page.card expanded=True%}
+            </section>
+        <hr class="wayfinder-rule">
+        {% include 'creditcards/partials/_disclosure.html' %}
+    </div>
+</section>
+{% endblock page_content %}
+
+{% block last_js %}
+	{{ block.super }}
+	<script>
+	var dataLayer = dataLayer || [];
+    dataLayer.push({'event': 'CreditCardIndividualPage'});
+	</script>
+{% endblock last_js %}

@@ -1,0 +1,15 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<article class="row">
+
+    <div class="article-image-container">
+         {% image self.image width-400 class="article-image" %}
+    </div>
+
+    <div class="article-text-container">
+        <h3><a href="{{ self.url }}">{{ self.title }} </a></h3>
+        {{ self.body|richtext }}
+        <div class="text-center">
+            <a href="{{ self.url }}" class="btn">Learn more</a>
+        </div>
+    </div>
+</article>

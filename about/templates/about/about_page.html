@@ -1,0 +1,11 @@
+{% extends 'about/base.html' %}
+{% load wagtailcore_tags %}
+
+{% block meta %}
+    {{ block.super }}
+    <meta name="STORY_UID" content="{{ page.uuid }}" />
+{% endblock meta %}
+
+{% block page_content %}
+    {% include_block page.body %}
+{% endblock page_content %}
